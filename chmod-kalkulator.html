@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="hr" itemscope itemtype="http://schema.org/Article">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="index, follow" name="robots">
+    <title>chmod calculator V1.0</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bcustom.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="js/jquery-1.10.2.js"></script>
+
+  </head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                  <h3 class="post-title"><a href="index.html">chmod claculator</a></h3>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="page-header"> </div>
+        <a name="top"></a>
+        <div class="post">
+            <!-- Whitespace added for readability -->
+            <header class="post-header">
+
+            </header>
+            <article id="post-content" class="post-content">
+              <table border="0" cellpadding="0" cellspacing="0"  class="table table-hover">
+              	<tbody>
+
+              		<tr>
+              			<td><span class="label label-default">Dopu&scaron;tenje</span> </td>
+              			<td><span class="label label-success">Vlasniku</span></td>
+              			<td><span class="label label-warning">Grupi</span></td>
+              			<td><span class="label label-danger">Ostalima</span></td>
+              		</tr>
+              		<tr>
+              			<td>Čitanje</td>
+              			<td><input name="vlasnik" id="citanje_vlasnik" type="checkbox" value="4" /></td>
+              			<td><input name="grupa" id="citanje_grupa" type="checkbox" value="4" /></td>
+              			<td><input name="ostali" id="citanje_ostali" type="checkbox" value="4" /></td>
+              		</tr>
+              		<tr>
+              			<td>Pisanje</td>
+              			<td><input name="vlasnik" id="pisanje_vlasnik" type="checkbox" value="2" /></td>
+              			<td><input name="grupa" id="pisanje_grupa" type="checkbox" value="2" /></td>
+              			<td><input name="ostali" id="pisanje_ostali" type="checkbox" value="2" /></td>
+              		</tr>
+              		<tr>
+              			<td>Izvr&scaron;avanje</td>
+              			<td><input name="vlasnik" id="izvrsavanje_vlasnik" type="checkbox" value="1" /></td>
+              			<td><input name="grupa" id="izvrsavanje_grupa" type="checkbox" value="1" /></td>
+              			<td><input name="ostali" id="izvrsavanje_ostali" type="checkbox" value="1" /></td>
+              		</tr>
+              		<tr>
+              			<td>File mode</td>
+              			<td><input name="vrijednost" type="number" min="0" max="7" id="vlasnik" size="1" type="text" value="0" /></td>
+              			<td><input name="vrijednost" type="number" min="0" max="7" id="grupa" size="1" type="text" value="0" /></td>
+              			<td><input name="vrijednost" type="number" min="0" max="7" id="ostali" size="1" type="text" value="0" /></td>
+              		</tr>
+              	</tbody>
+              </table>
+              <div class="alert alert-success" id="sudochmod">*</div>
+              <p>&nbsp;</p>
+
+
+              <script>
+                  function zbrojSve()
+                  {
+                      var vlasnik = $( "#vlasnik" ).val();
+                      var grupa = $( "#grupa" ).val();
+                      var ostali = $( "#ostali" ).val();
+                      var poruka="";
+                      if (vlasnik+grupa+ostali=="777") {
+                          poruka=" ili <span class=\"badge\">chmod a+rwx </span></br><small><em>(nadam se da zna&scaron; &scaron;to radi&scaron; :)</em></small>";
+                      }
+                  //mislim da je ovo moglo biti elegantnije...
+                  if (vlasnik=="0") {
+                   var vlasnik_symbolic="u=-rwx";
+                  }
+                  if (vlasnik=="1") {
+                   var vlasnik_symbolic="u=+x";
+                  }
+                  if (vlasnik=="2") {
+                   var vlasnik_symbolic="u=+w";
+                  }
+                  if (vlasnik=="3") {
+                   var vlasnik_symbolic="u=+wx";
+                  }
+                  if (vlasnik=="4") {
+                   var vlasnik_symbolic="u=+r";
+                  }
+                  if (vlasnik=="5") {
+                   var vlasnik_symbolic="u=+rx";
+                  }
+                  if (vlasnik=="6") {
+                   var vlasnik_symbolic="u=+rw";
+                  }
+                  if (vlasnik=="7") {
+                   var vlasnik_symbolic="u=+rwx";
+                  }
+              if (grupa=="0") {
+                   var grupa_symbolic="g=-rwx";
+                  }
+                  if (grupa=="1") {
+                   var grupa_symbolic="g=+x";
+                  }
+                  if (grupa=="2") {
+                   var grupa_symbolic="g=+w";
+                  }
+                  if (grupa=="3") {
+                   var grupa_symbolic="g=+wx";
+                  }
+                  if (grupa=="4") {
+                   var grupa_symbolic="g=+r";
+                  }
+                  if (grupa=="5") {
+                   var grupa_symbolic="g=+rx";
+                  }
+                  if (grupa=="6") {
+                   var grupa_symbolic="g=+rw";
+                  }
+                  if (grupa=="7") {
+                   var grupa_symbolic="g=+rwx";
+                  }
+              if (ostali=="0") {
+                   var ostali_symbolic="o=-rwx";
+                  }
+                  if (ostali=="1") {
+                   var ostali_symbolic="o=+x";
+                  }
+                  if (ostali=="2") {
+                   var ostali_symbolic="o=+w";
+                  }
+                  if (ostali=="3") {
+                   var ostali_symbolic="o=+wx";
+                  }
+                  if (ostali=="4") {
+                   var ostali_symbolic="o=+r";
+                  }
+                  if (ostali=="5") {
+                   var ostali_symbolic="o=+rx";
+                  }
+                  if (ostali=="6") {
+                   var ostali_symbolic="o=+rw";
+                  }
+                  if (ostali=="7") {
+                   var ostali_symbolic="o=+rwx";
+                  }
+                 $( "#sudochmod" ).html( 'Oktalni oblik: <span class=\"badge\">chmod '+ vlasnik+grupa+ostali+' </span></br>'+'Simbolički oblik: <span class=\"badge\">chmod '+ vlasnik_symbolic+","+grupa_symbolic+","+ostali_symbolic+" </span>"+poruka+"<p>&nbsp;</p><small></br>prikaži oktalnu vrijednost dopu&scaron;tenja: </small></br>linux: <span class=\"badge\">stat -c \"%a %n\"</span></br>os x: <span class=\"badge\">stat -f \"%Lp\" </span>");
+                  }
+              //vrijednost
+                  function vrijednost(IdName)
+                  {
+                      var vr = parseInt($( "#"+IdName ).val());
+                      if (vr>7 || vr.length>1 || isNaN(vr))
+                      {
+                          $( "#"+IdName ).val(0);
+                          vr = parseInt($( "#"+IdName ).val());
+                      }
+
+
+                      if (vr==0) {
+                           $('#citanje_'+IdName).prop('checked', false);
+                           $('#pisanje_'+IdName).prop('checked', false);
+                           $('#izvrsavanje_'+IdName).prop('checked', false);
+                      }
+                      if (vr==1) {
+                           $('#citanje_'+IdName).prop('checked', false);
+                           $('#pisanje_'+IdName).prop('checked', false);
+                           $('#izvrsavanje_'+IdName).prop('checked', true);
+
+                      }
+                      if (vr==2) {
+                           $('#citanje_'+IdName).prop('checked', false);
+                           $('#pisanje_'+IdName).prop('checked', true);
+                           $('#izvrsavanje_'+IdName).prop('checked', false);
+
+                      }
+                      if (vr==3) {
+                           $('#citanje_'+IdName).prop('checked', false);
+                           $('#pisanje_'+IdName).prop('checked', true);
+                           $('#izvrsavanje_'+IdName).prop('checked', true);
+
+                      }
+                      if (vr==4) {
+                           $('#citanje_'+IdName).prop('checked', true);
+                           $('#pisanje_'+IdName).prop('checked', false);
+                           $('#izvrsavanje_'+IdName).prop('checked', false);
+
+                      }
+                       if (vr==5) {
+                           $('#citanje_'+IdName).prop('checked', true);
+                           $('#pisanje_'+IdName).prop('checked', false);
+                           $('#izvrsavanje_'+IdName).prop('checked', true);
+
+                      }
+                       if (vr==6) {
+                           $('#citanje_'+IdName).prop('checked', true);
+                           $('#pisanje_'+IdName).prop('checked', true);
+                           $('#izvrsavanje_'+IdName).prop('checked', false);
+
+                      }
+                       if (vr==7) {
+                           $('#citanje_'+IdName).prop('checked', true);
+                           $('#pisanje_'+IdName).prop('checked', true);
+                           $('#izvrsavanje_'+IdName).prop('checked', true);
+
+                      }
+
+                  }
+                $( "input[name = 'vrijednost']" ).change(function()
+                      {
+                          var IdName =$(this).attr('id');
+                          vrijednost(IdName);
+                          zbrojSve();
+                      });
+              //vlasnik
+                  $( "input[name = 'vlasnik']" ).click(function()
+                      {
+                          var citanje_vlasnik=0;
+                          var pisanje_vlasnik=0;
+                          var izvrsavanje_vlasnik=0;
+                          if ($('#citanje_vlasnik').prop('checked'))
+                              {
+                                  citanje_vlasnik = parseInt($( "#citanje_vlasnik" ).val());
+                              }
+                          if ($('#pisanje_vlasnik').prop('checked'))
+                              {
+                                  pisanje_vlasnik = parseInt($( "#pisanje_vlasnik" ).val());
+                              }
+                          if ($('#izvrsavanje_vlasnik').prop('checked'))
+                              {
+                                  izvrsavanje_vlasnik = parseInt($( "#izvrsavanje_vlasnik" ).val());
+                              }
+
+                          $( "#vlasnik" ).val( citanje_vlasnik+pisanje_vlasnik+izvrsavanje_vlasnik );
+                          zbrojSve();
+                      });
+              //grupa
+                  $( "input[name = 'grupa']" ).click(function()
+                      {
+                          var citanje_grupa=0;
+                          var pisanje_grupa=0;
+                          var izvrsavanje_grupa=0;
+                          if ($('#citanje_grupa').prop('checked'))
+                              {
+                                  citanje_grupa = parseInt($( "#citanje_grupa" ).val());
+                              }
+                          if ($('#pisanje_grupa').prop('checked'))
+                              {
+                                  pisanje_grupa = parseInt($( "#pisanje_grupa" ).val());
+                              }
+                          if ($('#izvrsavanje_grupa').prop('checked'))
+                              {
+                                  izvrsavanje_grupa = parseInt($( "#izvrsavanje_grupa" ).val());
+                              }
+
+                          $( "#grupa" ).val( citanje_grupa+pisanje_grupa+izvrsavanje_grupa );
+                          zbrojSve();
+                      });
+              //ostali
+                  $( "input[name = 'ostali']" ).click(function()
+                      {
+                          var citanje_ostali=0;
+                          var pisanje_ostali=0;
+                          var izvrsavanje_ostali=0;
+                          if ($('#citanje_ostali').prop('checked'))
+                              {
+                                  citanje_ostali = parseInt($( "#citanje_ostali" ).val());
+                              }
+                          if ($('#pisanje_ostali').prop('checked'))
+                              {
+                                  pisanje_ostali = parseInt($( "#pisanje_ostali" ).val());
+                              }
+                          if ($('#izvrsavanje_ostali').prop('checked'))
+                              {
+                                  izvrsavanje_ostali = parseInt($( "#izvrsavanje_ostali" ).val());
+                              }
+
+                          $( "#ostali" ).val( citanje_ostali+pisanje_ostali+izvrsavanje_ostali );
+                          zbrojSve();
+                      });
+              </script>
+        </div>
+        <p>&nbsp;</p>
+    </div> <span id="end"></span>
+    <p>&nbsp;</p>
+    <div class="footer">
+
+    </div>
+    <script src="js/bootstrap.min.js">
+    </script>
+</body>
+
+</html>
