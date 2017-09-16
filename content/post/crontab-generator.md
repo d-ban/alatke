@@ -13,6 +13,6 @@ weight: 10
 
 > Cron je ime programa koji omogućava unix korisnicima automatsko pokretanje programa ili skripti u određeno vrijeme.
 
-[Crontab generator](https://d-ban.github.io/wedevelop/crontab-generator) napisan je u javascript/html-u i može se pokrenuti bez web servera.
+[Crontab generator](https://github.com/d-ban/wedevelop/tree/master/content/crontab-generator) napisan je u javascript/html-u i može se pokrenuti bez web servera.
 
 a kao što vidiš pogodan je i za iframe.
