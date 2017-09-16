@@ -49,7 +49,7 @@ a kao što vidiš pogodan je i za iframe.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d-ban.github.io/wedevelop/crontab-generator/</guid>
-      <description>Crontab generator V1.0    crontab generator               *   *   *   *   *   uredi       Svake minute? program se pokreće svake minute   Svake n minute? npr. svakih pet minuta   Svake određene minute? npr. peta, deseta i 45.</description>
+      <description>Crontab generator V1.0              *   *   *   *   *   uredi       Svake minute? program se pokreće svake minute   Svake n minute? npr. svakih pet minuta   Svake određene minute? npr. peta, deseta i 45. minuta      Svaki sat?</description>
     </item>
     
   </channel>
