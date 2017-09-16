@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="hr" itemscope itemtype="http://schema.org/Article">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="index, follow" name="robots">
+    <title>Crontab generator V1.0</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bcustom.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="js/jquery-1.10.2.js"></script>
+
+  </head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                  <h3 class="post-title"><a href="index.html">crontab generator</a></h3>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                </div>
+                
+            </div>
+        </nav>
+        <div class="page-header"> </div>
+        <a name="top"></a>
+        <div class="post">
+            
+            <header class="post-header">
+
+            </header>
+            <article id="post-content" class="post-content">
+                <table border="1" cellpadding="1" cellspacing="1" class="table">
+                    <tbody>
+                        <tr>
+                            <td colspan="6">
+                                <div class="col-lg-12">
+                                    <input type="text" id="kopiraj" class="form-control" placeholder="klikni na asterisk za daljnje uređivanje"> </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="1">*</div>
+                            </td>
+                            <td>
+                                <div id="2">*</div>
+                            </td>
+                            <td>
+                                <div id="3">*</div>
+                            </td>
+                            <td>
+                                <div id="4">*</div>
+                            </td>
+                            <td>
+                                <div id="5">*</div>
+                            </td>
+                            <td>
+                                <div id="uredi" class="label label-default">uredi</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="1" class="table" id="minutaMenu">
+                    <tbody>
+                        <tr>
+                            <td class="alert alert-warning" id="svakeminute" style="cursor:pointer">Svake minute?<small> program se pokreće svake minute</small></td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-success" id="svakeNminute" style="cursor:pointer">Svake <strong>n</strong> minute?<small> npr. svakih pet minuta</small></td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-info" id="svakeOdredeneminute" style="cursor:pointer">Svake određene minute? <small>npr. peta, deseta i 45. minuta</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="1" class="table" id="satiMenu">
+                    <tbody>
+                        <tr>
+                            <td class="alert alert-warning" id="svakiSat" style="cursor:pointer">Svaki sat?<small> program se pokreće svaki sat</small></td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-success" id="svakiNsati" style="cursor:pointer">Svaki <strong>n</strong> sat?<small> npr. svaka dva sata</small></td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-info" id="svakiOdredeniSat" style="cursor:pointer">Svaki određeni sat? <small>npr. u 11, 10 i 16 sati</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="1" class="table" id="danMenu">
+                    <tbody>
+                        <tr>
+                            <td class="alert alert-warning" id="svakiDan" style="cursor:pointer">Svaki dan?<small> program se pokreće svaki dan</small></td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-info" id="svakeOdredeniDan" style="cursor:pointer">Svaki određeni dan? <small>npr. sedmi, deseti i 12. dan mjesecu</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="1" class="table" id="mjesecMenu">
+                    <tbody>
+                        <tr>
+                            <td class="alert alert-warning" id="svakiMjesec" style="cursor:pointer">Svaki mjesec?<small> program se pokreće svaki mjesec</small></td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-info" id="svakiOdredeniMjesec" style="cursor:pointer">Svaki određeni mjesec? <small>npr. sedmi, deseti i 12. mjesec</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="1" class="table" id="tjedanMenu">
+                    <tbody>
+                        <tr>
+                            <td class="alert alert-warning" id="svakiTjedan" style="cursor:pointer">Svaki dan u tjednu?<small> program se pokreće svaki dan u tjednu</small></td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-info" id="svakiOdredeniTjedan" style="cursor:pointer">Svaki određeni dan u tjednu? <small>npr. utorakom i srijedom</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="svakeNminuteT" border="0" cellpadding="1" cellspacing="1" class="table">
+                    <tbody class="alert alert-success">
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="0" disabled/>&nbsp;00</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="1" />&nbsp;01</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="2" />&nbsp;02</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="3" />&nbsp;03</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="4" />&nbsp;04</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="5" />&nbsp;05</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="6" />&nbsp;06</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="7" />&nbsp;07</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="8" />&nbsp;08</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="9" />&nbsp;09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="10" />&nbsp;10</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="11" />&nbsp;11</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="12" />&nbsp;12</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="13" />&nbsp;13</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="14" />&nbsp;14</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="15" />&nbsp;15</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="16" />&nbsp;16</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="17" />&nbsp;17</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="18" />&nbsp;18</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="19" />&nbsp;19</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="20" />&nbsp;20</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="21" />&nbsp;21</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="22" />&nbsp;22</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="23" />&nbsp;23</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="24" />&nbsp;24</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="25" />&nbsp;25</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="26" />&nbsp;26</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="27" />&nbsp;27</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="28" />&nbsp;28</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="29" />&nbsp;29</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="30" />&nbsp;30</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="31" />&nbsp;31</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="32" />&nbsp;32</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="33" />&nbsp;33</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="34" />&nbsp;34</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="35" />&nbsp;35</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="36" />&nbsp;36</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="37" />&nbsp;37</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="38" />&nbsp;38</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="39" />&nbsp;39</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="40" />&nbsp;40</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="41" />&nbsp;41</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="42" />&nbsp;42</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="43" />&nbsp;43</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="44" />&nbsp;44</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="45" />&nbsp;45</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="46" />&nbsp;46</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="47" />&nbsp;47</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="48" />&nbsp;48</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="49" />&nbsp;49</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="50" />&nbsp;50</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="51" />&nbsp;51</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="52" />&nbsp;52</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="53" />&nbsp;53</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="54" />&nbsp;54</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="55" />&nbsp;55</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="56" />&nbsp;56</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="57" />&nbsp;57</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="58" />&nbsp;58</td>
+                            <td>
+                                <input name="svakeminuteR" type="radio" value="59" />&nbsp;59</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="svakeOdredeneminuteT" border="0" cellpadding="1" cellspacing="1" class="table">
+                    <tbody class="alert alert-info">
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="0" />&nbsp;00</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="1" />&nbsp;01</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="2" />&nbsp;02</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="3" />&nbsp;03</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="4" />&nbsp;04</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="5" />&nbsp;05</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="6" />&nbsp;06</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="7" />&nbsp;07</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="8" />&nbsp;08</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="9" />&nbsp;09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="10" />&nbsp;10</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="11" />&nbsp;11</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="12" />&nbsp;12</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="13" />&nbsp;13</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="14" />&nbsp;14</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="15" />&nbsp;15</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="16" />&nbsp;16</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="17" />&nbsp;17</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="18" />&nbsp;18</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="19" />&nbsp;19</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="20" />&nbsp;20</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="21" />&nbsp;21</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="22" />&nbsp;22</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="23" />&nbsp;23</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="24" />&nbsp;24</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="25" />&nbsp;25</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="26" />&nbsp;26</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="27" />&nbsp;27</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="28" />&nbsp;28</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="29" />&nbsp;29</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="30" />&nbsp;30</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="31" />&nbsp;31</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="32" />&nbsp;32</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="33" />&nbsp;33</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="34" />&nbsp;34</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="35" />&nbsp;35</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="36" />&nbsp;36</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="37" />&nbsp;37</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="38" />&nbsp;38</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="39" />&nbsp;39</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="40" />&nbsp;40</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="41" />&nbsp;41</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="42" />&nbsp;42</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="43" />&nbsp;43</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="44" />&nbsp;44</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="45" />&nbsp;45</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="46" />&nbsp;46</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="47" />&nbsp;47</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="48" />&nbsp;48</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="49" />&nbsp;49</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="50" />&nbsp;50</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="51" />&nbsp;51</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="52" />&nbsp;52</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="53" />&nbsp;53</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="54" />&nbsp;54</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="55" />&nbsp;55</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="56" />&nbsp;56</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="57" />&nbsp;57</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="58" />&nbsp;58</td>
+                            <td>
+                                <input name="svakeOdredeneminuteC" type="checkbox" value="59" />&nbsp;59</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="svakiNsatT" border="0" cellpadding="1" cellspacing="1" class="table">
+                    <tbody class="alert alert-success">
+                        <tr>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="0" disabled/>&nbsp;00</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="1" />&nbsp;01</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="2" />&nbsp;02</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="3" />&nbsp;03</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="4" />&nbsp;04</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="5" />&nbsp;05</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="6" />&nbsp;06</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="7" />&nbsp;07</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="8" />&nbsp;08</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="9" />&nbsp;09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="10" />&nbsp;10</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="11" />&nbsp;11</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="12" />&nbsp;12</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="13" />&nbsp;13</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="14" />&nbsp;14</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="15" />&nbsp;15</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="16" />&nbsp;16</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="17" />&nbsp;17</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="18" />&nbsp;18</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="19" />&nbsp;19</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="20" />&nbsp;20</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="21" />&nbsp;21</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="22" />&nbsp;22</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="23" />&nbsp;23</td>
+                            <td>
+                                <input name="svakiSatR" type="radio" value="24" disabled/>&nbsp;24</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="svakiOdredeniSatT" border="0" cellpadding="1" cellspacing="1" class="table">
+                    <tbody class="alert alert-info">
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="0" />&nbsp;00</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="1" />&nbsp;01</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="2" />&nbsp;02</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="3" />&nbsp;03</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="4" />&nbsp;04</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="5" />&nbsp;05</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="6" />&nbsp;06</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="7" />&nbsp;07</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="8" />&nbsp;08</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="9" />&nbsp;09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="10" />&nbsp;10</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="11" />&nbsp;11</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="12" />&nbsp;12</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="13" />&nbsp;13</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="14" />&nbsp;14</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="15" />&nbsp;15</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="16" />&nbsp;16</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="17" />&nbsp;17</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="18" />&nbsp;18</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="19" />&nbsp;19</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="20" />&nbsp;20</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="21" />&nbsp;21</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="22" />&nbsp;22</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="23" />&nbsp;23</td>
+                            <td>
+                                <input name="svakiOdredeniSatC" type="checkbox" value="24" disabled/>&nbsp;24</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="svakiOdredeniDanT" border="0" cellpadding="1" cellspacing="1" class="table">
+                    <tbody class="alert alert-info">
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="0" disabled/>&nbsp;00</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="1" />&nbsp;01</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="2" />&nbsp;02</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="3" />&nbsp;03</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="4" />&nbsp;04</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="5" />&nbsp;05</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="6" />&nbsp;06</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="7" />&nbsp;07</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="8" />&nbsp;08</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="9" />&nbsp;09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="10" />&nbsp;10</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="11" />&nbsp;11</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="12" />&nbsp;12</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="13" />&nbsp;13</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="14" />&nbsp;14</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="15" />&nbsp;15</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="16" />&nbsp;16</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="17" />&nbsp;17</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="18" />&nbsp;18</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="19" />&nbsp;19</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="20" />&nbsp;20</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="21" />&nbsp;21</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="22" />&nbsp;22</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="23" />&nbsp;23</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="24" />&nbsp;24</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="25" />&nbsp;25</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="26" />&nbsp;26</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="27" />&nbsp;27</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="28" />&nbsp;28</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="29" />&nbsp;29</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="30" />&nbsp;30</td>
+                            <td>
+                                <input name="svakiOdredeniDanC" type="checkbox" value="31" />&nbsp;31</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="svakiOdredeniMjesecT" border="0" cellpadding="1" cellspacing="1" class="table">
+                    <tbody class="alert alert-info">
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="0" disabled/>&nbsp;00</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="1" />&nbsp;01</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="2" />&nbsp;02</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="3" />&nbsp;03</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="4" />&nbsp;04</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="5" />&nbsp;05</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="6" />&nbsp;06</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="7" />&nbsp;07</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="8" />&nbsp;08</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="9" />&nbsp;09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="10" />&nbsp;10</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="11" />&nbsp;11</td>
+                            <td>
+                                <input name="svakiOdredeniMjesecC" type="checkbox" value="12" />&nbsp;12</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="svakiOdredeniTjedanT" border="0" cellpadding="1" cellspacing="1" class="table">
+                    <tbody class="alert alert-info">
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniTjedanC" type="checkbox" value="1" />&nbsp;Ponedjeljak</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniTjedanC" type="checkbox" value="2" />&nbsp;Utorak</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniTjedanC" type="checkbox" value="3" />&nbsp;Srijeda</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniTjedanC" type="checkbox" value="4" />&nbsp;Četvrtak</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniTjedanC" type="checkbox" value="5" />&nbsp;Petak</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniTjedanC" type="checkbox" value="6" />&nbsp;Subota</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="svakiOdredeniTjedanC" type="checkbox" value="0" />&nbsp;Nedjelja</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <script>
+                    $("#minutaMenu").hide();
+                    $("#satiMenu").hide();
+                    $("#svakeNminuteT").hide();
+                    $("#svakeOdredeneminuteT").hide();
+                    $("#svakiNsatT").hide();
+                    $("#svakiOdredeniSatT").hide();
+                    $("#danMenu").hide();
+                    $("#svakiOdredeniDanT").hide();
+                    $("#mjesecMenu").hide();
+                    $("#svakiOdredeniMjesecT").hide();
+                    $("#tjedanMenu").hide();
+                    $("#svakiOdredeniTjedanT").hide();
+                    $("#1").click(function() {
+                        $("#minutaMenu").toggle();
+                        $("#satiMenu").hide();
+                        $("#danMenu").hide();
+                        $("#mjesecMenu").hide();
+                        $("#svakeNminuteT").hide();
+                        $("#svakeOdredeneminuteT").hide();
+                        $("#svakiNsatT").hide();
+                        $("#svakiOdredeniSatT").hide();
+                        $("#svakiOdredeniDanT").hide();
+                        $("#tjedanMenu").hide();
+                        $("#svakiOdredeniTjedanT").hide();
+                        $("#svakiOdredeniMjesecT").hide()
+                    });
+                    $("#2").click(function() {
+                        $("#satiMenu").toggle();
+                        $("#danMenu").hide();
+                        $("#minutaMenu").hide();
+                        $("#mjesecMenu").hide();
+                        $("#svakiNsatT").hide();
+                        $("#svakeNminuteT").hide();
+                        $("#svakeOdredeneminuteT").hide();
+                        $("#svakiOdredeniDanT").hide();
+                        $("#tjedanMenu").hide();
+                        $("#svakiOdredeniTjedanT").hide();
+                        $("#svakiOdredeniMjesecT").hide()
+                    });
+                    $("#3").click(function() {
+                        $("#danMenu").toggle();
+                        $("#satiMenu").hide();
+                        $("#minutaMenu").hide();
+                        $("#mjesecMenu").hide();
+                        $("#svakiNsatT").hide();
+                        $("#svakiOdredeniSatT").hide();
+                        $("#svakeNminuteT").hide();
+                        $("#svakeOdredeneminuteT").hide();
+                        $("#svakiOdredeniDanT").hide();
+                        $("#tjedanMenu").hide();
+                        $("#svakiOdredeniTjedanT").hide();
+                        $("#svakiOdredeniMjesecT").hide()
+                    });
+                    $("#4").click(function() {
+                        $("#mjesecMenu").toggle();
+                        $("#satiMenu").hide();
+                        $("#minutaMenu").hide();
+                        $("#danMenu").hide();
+                        $("#svakiNsatT").hide();
+                        $("#svakiOdredeniSatT").hide();
+                        $("#svakeNminuteT").hide();
+                        $("#svakeOdredeneminuteT").hide();
+                        $("#svakiOdredeniDanT").hide();
+                        $("#tjedanMenu").hide();
+                        $("#svakiOdredeniTjedanT").hide();
+                        $("#svakiOdredeniMjesecT").hide()
+                    });
+                    $("#5").click(function() {
+                        $("#tjedanMenu").toggle();
+                        $("#satiMenu").hide();
+                        $("#danMenu").hide();
+                        $("#minutaMenu").hide();
+                        $("#svakiNsatT").hide();
+                        $("#svakiOdredeniSatT").hide();
+                        $("#svakeNminuteT").hide();
+                        $("#svakeOdredeneminuteT").hide();
+                        $("#svakiOdredeniDanT").hide();
+                        $("#mjesecMenu").hide();
+                        $("#svakiOdredeniMjesecT").hide();
+                        $("#svakiOdredeniTjedanT").hide()
+                    });
+                    $("#svakeminute").click(function() {
+                        $("#svakeNminuteT").hide();
+                        $("#svakeOdredeneminuteT").hide();
+                        $("#1").empty();
+                        $("#1").html("*")
+                    });
+                    $("#svakeNminute").click(function() {
+                        $("#svakeNminuteT").toggle();
+                        $("#svakeOdredeneminuteT").hide()
+                    });
+                    $("input[name = 'svakeminuteR']").click(function() {
+                        var a = $(this).val();
+                        $("#1").html("*/" + a)
+                    });
+                    $("#svakeOdredeneminute").click(function() {
+                        $("#svakeOdredeneminuteT").toggle();
+                        $("#svakeNminuteT").hide()
+                    });
+                    $("input[name = 'svakeOdredeneminuteC']").click(function() {
+                        var b = [];
+                        $(function() {
+                            $('input[type="checkbox"][name = "svakeOdredeneminuteC"]:checked').each(function() {
+                                b.push($(this).val())
+                            })
+                        });
+                        $("#1").empty();
+                        for (var a = 0; a < b.length; a = a + 1) {
+                            if (b[a + 1]) {
+                                $("#1").append(b[a] + ",")
+                            } else {
+                                $("#1").append(b[a])
+                            }
+                        }
+                        if (b.length === 0) {
+                            $("#1").html("*")
+                        }
+                        b = []
+                    });
+                    $("#svakiSat").click(function() {
+                        $("#svakiNsatT").hide();
+                        $("#svakiOdredeniSatT").hide();
+                        $("#2").empty();
+                        $("#2").html("*")
+                    });
+                    $("#svakiNsati").click(function() {
+                        $("#svakiNsatT").toggle();
+                        $("#svakiOdredeniSatT").hide()
+                    });
+                    $("input[name = 'svakiSatR']").click(function() {
+                        var a = $(this).val();
+                        $("#2").html("*/" + a)
+                    });
+                    $("#svakiOdredeniSat").click(function() {
+                        $("#svakiOdredeniSatT").toggle();
+                        $("#svakiNsatT").hide()
+                    });
+                    $("input[name = 'svakiOdredeniSatC']").click(function() {
+                        var b = [];
+                        $(function() {
+                            $('input[type="checkbox"][name = "svakiOdredeniSatC"]:checked').each(function() {
+                                b.push($(this).val())
+                            })
+                        });
+                        $("#2").empty();
+                        for (var a = 0; a < b.length; a = a + 1) {
+                            if (b[a + 1]) {
+                                $("#2").append(b[a] + ",")
+                            } else {
+                                $("#2").append(b[a])
+                            }
+                        }
+                        if (b.length === 0) {
+                            $("#2").html("*")
+                        }
+                        b = []
+                    });
+                    $("#svakiDan").click(function() {
+                        $("#svakiOdredeniDanT").hide();
+                        $("#3").empty();
+                        $("#3").html("*")
+                    });
+                    $("#svakeOdredeniDan").click(function() {
+                        $("#svakiOdredeniDanT").toggle()
+                    });
+                    $("input[name = 'svakiOdredeniDanC']").click(function() {
+                        var b = [];
+                        $(function() {
+                            $('input[type="checkbox"][name = "svakiOdredeniDanC"]:checked').each(function() {
+                                b.push($(this).val())
+                            })
+                        });
+                        $("#3").empty();
+                        for (var a = 0; a < b.length; a = a + 1) {
+                            if (b[a + 1]) {
+                                $("#3").append(b[a] + ",")
+                            } else {
+                                $("#3").append(b[a])
+                            }
+                        }
+                        if (b.length === 0) {
+                            $("#3").html("*")
+                        }
+                        b = []
+                    });
+                    $("#svakiMjesec").click(function() {
+                        $("#svakiOdredeniMjesecT").hide();
+                        $("#4").empty();
+                        $("#4").html("*")
+                    });
+                    $("#svakiOdredeniMjesec").click(function() {
+                        $("#svakiOdredeniMjesecT").toggle()
+                    });
+                    $("input[name = 'svakiOdredeniMjesecC']").click(function() {
+                        var b = [];
+                        $(function() {
+                            $('input[type="checkbox"][name = "svakiOdredeniMjesecC"]:checked').each(function() {
+                                b.push($(this).val())
+                            })
+                        });
+                        $("#4").empty();
+                        for (var a = 0; a < b.length; a = a + 1) {
+                            if (b[a + 1]) {
+                                $("#4").append(b[a] + ",")
+                            } else {
+                                $("#4").append(b[a])
+                            }
+                        }
+                        if (b.length === 0) {
+                            $("#4").html("*")
+                        }
+                        b = []
+                    });
+                    $("#svakiTjedan").click(function() {
+                        $("#svakiOdredeniTjedanT").hide();
+                        $("#5").empty();
+                        $("#5").html("*")
+                    });
+                    $("#svakiOdredeniTjedan").click(function() {
+                        $("#svakiOdredeniTjedanT").toggle()
+                    });
+                    $("input[name = 'svakiOdredeniTjedanC']").click(function() {
+                        var b = [];
+                        $(function() {
+                            $('input[type="checkbox"][name = "svakiOdredeniTjedanC"]:checked').each(function() {
+                                b.push($(this).val())
+                            })
+                        });
+                        $("#5").empty();
+                        for (var a = 0; a < b.length; a = a + 1) {
+                            if (b[a + 1]) {
+                                $("#5").append(b[a] + ",")
+                            } else {
+                                $("#5").append(b[a])
+                            }
+                        }
+                        if (b.length === 0) {
+                            $("#5").html("*")
+                        }
+                        b = []
+                    });
+                    $("#uredi").click(function() {
+                        $("#kopiraj").empty();
+                        $("#kopiraj").val($("#1").text() + " " + $("#2").text() + " " + $("#3").text() + " " + $("#4").text() + " " + $("#5").text() + " naredba")
+                    });
+                </script>
+        </div>
+        <p>&nbsp;</p>
+    </div> <span id="end"></span>
+    <p>&nbsp;</p>
+    <div class="footer">
+
+    </div>
+    <script src="js/bootstrap.min.js">
+    </script>
+</body>
+
+</html>

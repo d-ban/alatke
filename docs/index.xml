@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alatke</title>
+    <link>https://d-ban.github.io/alatke/</link>
+    <description>Recent content on Alatke</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hr</language>
+    <copyright>&amp;copy; 2017. Sva prava pridržana.</copyright>
+    <lastBuildDate>Sun, 16 Sep 2012 20:52:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://d-ban.github.io/alatke/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chmod kalkulator</title>
+      <link>https://d-ban.github.io/alatke/post/chmod-generator/</link>
+      <pubDate>Sun, 16 Sep 2012 20:52:00 +0000</pubDate>
+      
+      <guid>https://d-ban.github.io/alatke/post/chmod-generator/</guid>
+      <description>Chmod  je standradna UNIX naredba kojom određujemo prava pristupa određenoj datoteci ili određenom direktoriju. Poznavajući korištenje naredbe chmod u mogućnosti smo konfigurirati vrlo siguran sustav u kojem će se točno znati koji korisnici smiju čitati, koji pisati, a koji izvršavati određene datoteke i direktorije.
+ Chmod kalkulator napisan je u javascript/html-u i može se pokrenuti bez web servera a kao što vidiš pogodan je i za iframe.</description>
+    </item>
+    
+    <item>
+      <title>Crontab generator</title>
+      <link>https://d-ban.github.io/alatke/post/crontab-generator/</link>
+      <pubDate>Sun, 16 Sep 2012 20:52:00 +0000</pubDate>
+      
+      <guid>https://d-ban.github.io/alatke/post/crontab-generator/</guid>
+      <description>Cron  Cron je ime programa koji omogućava unix korisnicima automatsko pokretanje programa ili skripti u određeno vrijeme.
+ Crontab generator napisan je u javascript/html-u i može se pokrenuti bez web servera.
+a kao što vidiš pogodan je i za iframe.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://d-ban.github.io/alatke/chmod-kalkulator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://d-ban.github.io/alatke/chmod-kalkulator/</guid>
+      <description>chmod kalkulator V1.0       Dopu&amp;scaron;tenje  Vlasniku Grupi Ostalima   Čitanje      Pisanje      Izvr&amp;scaron;avanje      File mode       * &amp;nbsp;
+ function zbrojSve() { var vlasnik = $( &#34;#vlasnik&#34; ).val(); var grupa = $( &#34;#grupa&#34; ).val(); var ostali = $( &#34;#ostali&#34; ).val(); var poruka=&#34;&#34;; if (vlasnik+grupa+ostali==&#34;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://d-ban.github.io/alatke/crontab-generator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://d-ban.github.io/alatke/crontab-generator/</guid>
+      <description>Crontab generator V1.0    crontab generator               *   *   *   *   *   uredi       Svake minute? program se pokreće svake minute   Svake n minute? npr. svakih pet minuta   Svake određene minute? npr. peta, deseta i 45.</description>
+    </item>
+    
+  </channel>
+</rss>

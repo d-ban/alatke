@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/post/chmod-generator/</loc>
+    <lastmod>2012-09-16T20:52:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/post/crontab-generator/</loc>
+    <lastmod>2012-09-16T20:52:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/chmod-kalkulator/</loc>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/crontab-generator/</loc>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/</loc>
+    <lastmod>2012-09-16T20:52:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/chmod-kalkulator/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/crontab-generator/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/post/</loc>
+    <lastmod>2012-09-16T20:52:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/alatke/topics/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
