@@ -21,12 +21,6 @@
   </url>
   
   <url>
-    <loc>https://d-ban.github.io/wedevelop/</loc>
-    <lastmod>2012-09-16T20:52:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://d-ban.github.io/wedevelop/chmod-kalkulator/</loc>
     <priority>0</priority>
   </url>
@@ -49,6 +43,12 @@
   
   <url>
     <loc>https://d-ban.github.io/wedevelop/topics/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://d-ban.github.io/wedevelop/</loc>
+    <lastmod>2012-09-16T20:52:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

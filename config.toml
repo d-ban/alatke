@@ -1,6 +1,6 @@
 baseURL = "https://d-ban.github.io/wedevelop/"
 languageCode = "hr"
-title = "Alatke"
+title = "Wedevelop"
 theme = "blackburn"
 copyright = "&copy; 2017. Sva prava pridržana."
 canonifyurls = true
