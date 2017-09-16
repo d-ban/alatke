@@ -37,7 +37,7 @@ paginate = 10
         pre = "<i class='fa fa-calculator fa-fw'></i>"
         weight = 2
         identifier = "chmod-kalkulator"
-        url = "/post/chmod-generator/"
+        url = "/post/chmod-kalkulator/"
       [[menu.main]]
         name = "Crontab generator"
         pre = "<i class='fa fa-calendar fa-fw'></i>"
